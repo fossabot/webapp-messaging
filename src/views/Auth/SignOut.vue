@@ -3,6 +3,9 @@ import axios from 'axios'
 
 export default {
   beforeCreate () {
+    // Clean current domain
+    localStorage.removeItem('crust.domain')
+
     const { adtSignOutUrl } = window.CrustConfig.webapp.auth || {}
     if (adtSignOutUrl) {
       axios({ method: 'GET', withCredentials: true, url: adtSignOutUrl })
