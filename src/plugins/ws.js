@@ -38,7 +38,7 @@ Websocket.prototype = Object.assign(Websocket.prototype, {
 
     const baseUrl = window.CrustConfig.messaging.baseUrl || 'https://sam.api.latest.crust.tech'
 
-    const url = baseUrl.replace(/^http/, 'ws') + '/websocket/'
+    const url = baseUrl.replace(/^http.+?:/, 'wss:') + '/websocket/'
 
     this.conn = new ReconnectingWebSocket(url)
     this.conn.debug = true
