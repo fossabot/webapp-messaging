@@ -10,12 +10,14 @@ import intervalPlural from 'i18next-intervalplural-postprocessor'
 
 Vue.use(VueI18Next)
 
+const fallbackLng = 'en'
+
 i18next
   .use(xhrBackend)
   .use(lngDetector)
   .use(intervalPlural)
   .init({
-    fallbackLng: window.CrustConfig.webapp.defaultLocale || 'en',
+    fallbackLng,
     debug: process.env.NODE_ENV !== 'production',
     detection: {
       // to overwrite, to use user defined, to guess user's lang

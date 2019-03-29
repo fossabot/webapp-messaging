@@ -185,6 +185,12 @@ export default {
   },
 
   created () {
+    // Do we have a valid cfg?
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.CrustConfig.invalid) {
+        this.$router.push({ name: 'signin' })
+      }
+    })
     this.windowResizeHandler()
     window.addEventListener('resize', this.windowResizeHandler)
 
